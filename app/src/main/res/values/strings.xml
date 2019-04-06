@@ -13,4 +13,15 @@
     <string name="name_textview_color">Выбрать цвет интерфейса</string>
     <string name="name_textview_header_settings">Настройки</string>
     <string name="name_description_icon">Это иконка приложения</string>
+    <string name="name_header_parameters">Параметры игры</string>
+    <string name="name_textview_gametype">Тип игры</string>
+    <string name="name_radio_computer">С компьютером</string>
+    <string name="name_radio_human">C человеком</string>
+    <string name="name_textview_difficult">Сложность игры</string>
+    <string name="name_radio_easy">Легко</string>
+    <string name="name_radio_normal">Средне</string>
+    <string name="name_radio_hard">Сложно</string>
+    <string name="name_radio_3x3">3 x 3</string>
+    <string name="name_radio_4x4">4 x 4</string>
+    <string name="name_button_start_game">Начать</string>
 </resources>

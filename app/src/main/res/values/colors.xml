@@ -5,4 +5,5 @@
     <color name="colorAccent">#646464</color>
     <color name="colorBackground">#4d4d4d</color>
     <color name="colorText">#FFFFFF</color>
+    <color name="colorRadioEnable">#3CB371</color>
 </resources>

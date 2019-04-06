@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="50dp"
+        android:paddingBottom="30dp"
+        android:text="@string/name_header_parameters"
+        android:textColor="@color/colorText"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:width="160dp"
+            android:gravity="center|start"
+            android:text="@string/name_textview_gametype"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <RadioButton
+                android:id="@+id/computer_radio_button"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="computer_radio_clicked"
+                android:text="@string/name_radio_computer"
+                android:textColor="@color/colorText" />
+
+            <RadioButton
+                android:id="@+id/human_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="human_radio_clicked"
+                android:text="@string/name_radio_human"
+                android:textColor="@color/colorText" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="160dp"
+            android:height="143dp"
+            android:gravity="center|start"
+            android:text="@string/name_textview_difficult"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/difficulty_radio_group">
+
+            <RadioButton
+                android:id="@+id/easy_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="easy_radio_clicked"
+                android:text="@string/name_radio_easy"
+                android:textColor="@color/colorText" />
+
+            <RadioButton
+                android:id="@+id/normal_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="normal_radio_clicked"
+                android:text="@string/name_radio_normal"
+                android:textColor="@color/colorText" />
+
+            <RadioButton
+                android:id="@+id/hard_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="hard_radio_clicked"
+                android:text="@string/name_radio_hard"
+                android:textColor="@color/colorText" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="160dp"
+            android:text="@string/name_textview_type"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <RadioButton
+                android:id="@+id/cell3x3_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="cell3x3_radio_clicked"
+                android:text="@string/name_radio_3x3"
+                android:textColor="@color/colorText" />
+
+            <RadioButton
+                android:id="@+id/cell4x4_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="cell4x4_radio_clicked"
+                android:text="@string/name_radio_4x4"
+                android:textColor="@color/colorText" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="20dp">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="120dp"
+            android:onClick="start_button_pressed"
+            android:text="@string/name_button_start_game" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="120dp"
+            android:onClick="back_button_pressed"
+            android:text="@string/name_button_back" />
+
+    </LinearLayout>
+
+</LinearLayout>
