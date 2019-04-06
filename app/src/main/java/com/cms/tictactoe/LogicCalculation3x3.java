@@ -1,6 +1,6 @@
 package com.cms.tictactoe;
 
-public class LogicCalculation extends GameActivity {
+public class LogicCalculation3x3 extends Game3x3Activity {
 
     public int LogicCheck(int[][] cell) {
         if ((cell[0][0] == 1 && cell[0][1] == 1 && cell[0][2] == 1) ||

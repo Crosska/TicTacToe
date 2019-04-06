@@ -10,18 +10,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-black"
-        android:paddingTop="50dp"
-        android:paddingBottom="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="@string/name_header_parameters"
         android:textColor="@color/colorText"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="10dp">
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="10dp">
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,10 +79,10 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/difficulty_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:id="@+id/difficulty_radio_group">
+            android:background="@color/colorPrimaryDark">
 
             <RadioButton
                 android:id="@+id/easy_radio_button"
@@ -122,14 +122,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:width="160dp"
-            android:text="@string/name_textview_type"
+            android:text="@string/name_textview_size"
             android:textColor="@color/colorText"
             android:textSize="18sp" />
 
@@ -156,6 +157,50 @@
                 android:width="190dp"
                 android:onClick="cell4x4_radio_clicked"
                 android:text="@string/name_radio_4x4"
+                android:textColor="@color/colorText" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="160dp"
+            android:text="@string/name_textview_mark"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <RadioButton
+                android:id="@+id/cross_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="cross_radio_clicked"
+                android:text="@string/name_radio_cross"
+                android:textColor="@color/colorText" />
+
+            <RadioButton
+                android:id="@+id/oval_radio_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="190dp"
+                android:onClick="oval_radio_clicked"
+                android:text="@string/name_radio_oval"
                 android:textColor="@color/colorText" />
 
         </RadioGroup>

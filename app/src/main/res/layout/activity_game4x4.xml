@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TextViewTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:padding="20dp"
+        android:paddingTop="10dp"
+        android:text="@string/name_turn_oval"
+        android:textColor="@color/colorText"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cell_0_0"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="10dp"
+            android:height="90dp"
+            android:onClick="cell_0_0_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_0_1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_0_1_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_0_2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_0_2_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_0_3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_0_3_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cell_1_0"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_1_0_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_1_1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_1_1_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_1_2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_1_2_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_1_3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_1_3_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cell_2_0"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_2_0_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_2_1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_2_1_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_2_2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_2_2_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_2_3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_2_3_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cell_3_0"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_3_0_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_3_1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_3_1_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_3_2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_3_2_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/cell_3_3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:width="20dp"
+            android:height="90dp"
+            android:onClick="cell_3_3_pressed"
+            android:textColor="@color/colorText"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_white_flag"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:width="160dp"
+            android:onClick="white_flag_pressed"
+            android:padding="15dp"
+            android:text="@string/name_button_white_flag"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

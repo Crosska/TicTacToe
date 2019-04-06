@@ -24,4 +24,8 @@
     <string name="name_radio_3x3">3 x 3</string>
     <string name="name_radio_4x4">4 x 4</string>
     <string name="name_button_start_game">Начать</string>
+    <string name="name_textview_size">Размер поля</string>
+    <string name="name_textview_mark">Тип отметки</string>
+    <string name="name_radio_oval">Нолик</string>
+    <string name="name_radio_cross">Крестик</string>
 </resources>
