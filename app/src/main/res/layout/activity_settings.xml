@@ -17,69 +17,131 @@
         android:textSize="30sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="240dp"
-            android:text="@string/name_textview_color"
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="170dp"
+                android:text="@string/name_textview_color"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="140dp"
+                android:onClick="color_button_pressed"
+                android:text="сменить" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_button_choose"
-            android:onClick="color_button_pressed"/>
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="170dp"
+                android:text="@string/name_textview_language"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="140dp"
+                android:text="Русский"
+                android:onClick="language_button_clicked" />
 
-        <TextView
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="240dp"
-            android:text="@string/name_textview_language"
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="170dp"
+                android:text="Таблица рекордов"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="140dp"
+                android:text="Показать"
+                android:onClick="score_button_clicked" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_button_choose" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="170dp"
+                android:text="Личный кабинет"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="140dp"
+                android:text="Зайти"
+                android:onClick="cabinet_button_clicked" />
 
-        <TextView
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="240dp"
-            android:text="@string/name_textview_type"
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name_button_choose" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="170dp"
+                android:text="Звук в игре"
+                android:textColor="@color/colorText"
+                android:textSize="18sp" />
+
+            <ToggleButton
+                android:id="@+id/switch_sound"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="140dp"
+                android:textOff="Выключен"
+                android:textOn="Включен"
+                android:onClick="sound_button_clicked" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

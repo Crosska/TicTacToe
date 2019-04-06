@@ -13,6 +13,10 @@ public class Game4x4Activity extends AppCompatActivity {
     public int turn = 2;
     public int[][] cell = new int[4][4];
     public boolean end = false;
+    int computer_difficulty;
+    int mark_type;
+    int player_type;
+    public int[] bot_choice = new int[2];
 
     Button mButton_0_0;
     Button mButton_0_1;
@@ -32,10 +36,6 @@ public class Game4x4Activity extends AppCompatActivity {
     Button mButton_3_3;
     Button mButton_white_flag;
     TextView mTextViewTurn;
-
-    int computer_difficulty;
-    int mark_type;
-    int player_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +152,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -169,6 +170,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -186,6 +188,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -203,6 +206,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -220,6 +224,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -237,6 +242,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -254,6 +260,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -271,6 +278,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -288,6 +296,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -305,6 +314,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -322,6 +332,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -339,6 +350,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -356,6 +368,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -373,6 +386,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -390,6 +404,7 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -407,8 +422,210 @@ public class Game4x4Activity extends AppCompatActivity {
             updateTurnValue();
             updateTurnText();
             checkWin();
+            if (player_type == 1) ComputerTurn();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void ComputerTurn() {
+        ComputerPlayer Bot = new ComputerPlayer();
+        switch (computer_difficulty) {
+            case 1:
+                bot_choice = Bot.EasyComputer(cell, turn);
+                SetComputerMark(bot_choice);
+                break;
+            case 2:
+                bot_choice = Bot.NormalComputer(cell, turn);
+                SetComputerMark(bot_choice);
+                break;
+            case 3:
+                Bot.HardComputer(cell, turn);
+                break;
+            default:
+                Toast.makeText(this, "Возникла ошибка в работе бота!", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
+    public void SetComputerMark(int[] bot_choice) {
+        if ((bot_choice[0] == 0) && (bot_choice[1] == 0)) {
+            if (turn == 1) {
+                cell[0][0] = 1;
+                mButton_0_0.setText("O");
+            } else {
+                cell[0][0] = 2;
+                mButton_0_0.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 0) && (bot_choice[1] == 1)) {
+            if (turn == 1) {
+                cell[0][1] = 1;
+                mButton_0_1.setText("O");
+            } else {
+                cell[0][1] = 2;
+                mButton_0_1.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 0) && (bot_choice[1] == 2)) {
+            if (turn == 1) {
+                cell[0][2] = 1;
+                mButton_0_2.setText("O");
+            } else {
+                cell[0][2] = 2;
+                mButton_0_2.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 0) && (bot_choice[1] == 3)) {
+            if (turn == 1) {
+                cell[0][3] = 1;
+                mButton_0_3.setText("O");
+            } else {
+                cell[0][3] = 2;
+                mButton_0_3.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 0)) {
+            if (turn == 1) {
+                cell[1][0] = 1;
+                mButton_1_0.setText("O");
+            } else {
+                cell[1][0] = 2;
+                mButton_1_0.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 1)) {
+            if (turn == 1) {
+                cell[1][1] = 1;
+                mButton_1_1.setText("O");
+            } else {
+                cell[1][1] = 2;
+                mButton_1_1.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 2)) {
+            if (turn == 1) {
+                cell[1][2] = 1;
+                mButton_1_2.setText("O");
+            } else {
+                cell[1][2] = 2;
+                mButton_1_2.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 3)) {
+            if (turn == 1) {
+                cell[1][3] = 1;
+                mButton_1_3.setText("O");
+            } else {
+                cell[1][3] = 2;
+                mButton_1_3.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 0)) {
+            if (turn == 1) {
+                cell[2][0] = 1;
+                mButton_2_0.setText("O");
+            } else {
+                cell[2][0] = 2;
+                mButton_2_0.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 1)) {
+            if (turn == 1) {
+                cell[2][1] = 1;
+                mButton_2_1.setText("O");
+            } else {
+                cell[2][1] = 2;
+                mButton_2_1.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 2)) {
+            if (turn == 1) {
+                cell[2][2] = 1;
+                mButton_2_2.setText("O");
+            } else {
+                cell[2][2] = 2;
+                mButton_2_2.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 3)) {
+            if (turn == 1) {
+                cell[2][3] = 1;
+                mButton_2_3.setText("O");
+            } else {
+                cell[2][3] = 2;
+                mButton_2_3.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 3) && (bot_choice[1] == 0)) {
+            if (turn == 1) {
+                cell[3][0] = 1;
+                mButton_3_0.setText("O");
+            } else {
+                cell[3][0] = 2;
+                mButton_3_0.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 3) && (bot_choice[1] == 1)) {
+            if (turn == 1) {
+                cell[3][1] = 1;
+                mButton_3_1.setText("O");
+            } else {
+                cell[3][1] = 2;
+                mButton_3_1.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 3) && (bot_choice[1] == 2)) {
+            if (turn == 1) {
+                cell[3][2] = 1;
+                mButton_3_2.setText("O");
+            } else {
+                cell[3][2] = 2;
+                mButton_3_2.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        } else if ((bot_choice[0] == 3) && (bot_choice[1] == 3)) {
+            if (turn == 1) {
+                cell[3][3] = 1;
+                mButton_3_3.setText("O");
+            } else {
+                cell[3][3] = 2;
+                mButton_3_3.setText("X");
+            }
+            updateTurnValue();
+            updateTurnText();
+            checkWin();
+        }
+    }
+
 }

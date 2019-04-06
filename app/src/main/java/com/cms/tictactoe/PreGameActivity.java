@@ -104,7 +104,6 @@ public class PreGameActivity extends AppCompatActivity {
         cross_radio.setEnabled(false);
         oval_radio.setEnabled(false);
         player_type = 2;
-        mark_type = 2;
     }
 
     public void easy_radio_clicked(View view) {
