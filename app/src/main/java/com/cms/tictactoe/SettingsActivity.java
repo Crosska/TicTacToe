@@ -16,5 +16,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void back_button_pressed(View view) {
+        finish();
     }
 }

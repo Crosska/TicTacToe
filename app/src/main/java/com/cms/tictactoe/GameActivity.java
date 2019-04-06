@@ -1,8 +1,9 @@
 package com.cms.tictactoe;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -40,5 +41,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void white_flag_pressed(View view) {
+        Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
