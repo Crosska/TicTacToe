@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    private int turn = 1;
-    private int[][] cell = new int[3][3];
-    private boolean end = false;
+    public int turn = 1;
+    public int[][] cell = new int[3][3];
+    public boolean end = false;
 
     Button mButton_0_0;
     Button mButton_0_1;
@@ -55,6 +55,7 @@ public class GameActivity extends AppCompatActivity {
             }
             updateTurnValue();
             updateTurnText();
+            checkWin();
         } else {
             Toast.makeText(this, "Данная клетка уже занята", Toast.LENGTH_SHORT).show();
         }
@@ -94,14 +95,14 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void cell_2_2_pressed(View view) {
-        if (cell[2][2] != 1 && cell[2][2] != 2) { // 1 - нолик, 2 - крестик
+    public void cell_2_0_pressed(View view) {
+        if (cell[2][0] != 1 && cell[2][0] != 2) { // 1 - нолик, 2 - крестик
             if (turn == 1) {
-                cell[2][2] = 1;
-                mButton_2_2.setText("O");
+                cell[2][0] = 1;
+                mButton_2_0.setText("O");
             } else {
-                cell[2][2] = 2;
-                mButton_2_2.setText("X");
+                cell[2][0] = 2;
+                mButton_2_0.setText("X");
             }
             updateTurnValue();
             updateTurnText();
@@ -128,14 +129,14 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void cell_2_0_pressed(View view) {
-        if (cell[2][0] != 1 && cell[2][0] != 2) { // 1 - нолик, 2 - крестик
+    public void cell_2_2_pressed(View view) {
+        if (cell[2][2] != 1 && cell[2][2] != 2) { // 1 - нолик, 2 - крестик
             if (turn == 1) {
-                cell[2][0] = 1;
-                mButton_2_0.setText("O");
+                cell[2][2] = 1;
+                mButton_2_2.setText("O");
             } else {
-                cell[2][0] = 2;
-                mButton_2_0.setText("X");
+                cell[2][2] = 2;
+                mButton_2_2.setText("X");
             }
             updateTurnValue();
             updateTurnText();
@@ -214,42 +215,7 @@ public class GameActivity extends AppCompatActivity {
         else turn = 1;
     }
 
-    public void checkWin() {
-        if ((cell[0][0] == 1 && cell[0][1] == 1 && cell[0][2] == 1) ||
-                (cell[1][0] == 1 && cell[1][1] == 1 && cell[1][2] == 1) ||
-                (cell[2][0] == 1 && cell[2][1] == 1 && cell[2][2] == 1) ||
-                (cell[0][0] == 1 && cell[1][0] == 1 && cell[2][0] == 1) ||
-                (cell[0][1] == 1 && cell[1][1] == 1 && cell[2][1] == 1) ||
-                (cell[0][2] == 1 && cell[1][2] == 1 && cell[2][2] == 1) ||
-                (cell[0][0] == 1 && cell[1][1] == 1 && cell[2][2] == 1) ||
-                (cell[2][0] == 1 && cell[1][1] == 1 && cell[0][2] == 1)) {
-            mTextViewTurn.setText("Нолики победили!");
-            mButton_white_flag.setText("Назад");
-            updateButtonsUsabilty(false);
-            end = true;
-        } else if ((cell[0][0] == 2 && cell[0][1] == 2 && cell[0][2] == 2) ||
-                (cell[1][0] == 2 && cell[1][1] == 2 && cell[1][2] == 2) ||
-                (cell[2][0] == 2 && cell[2][1] == 2 && cell[2][2] == 2) ||
-                (cell[0][0] == 2 && cell[1][0] == 2 && cell[2][0] == 2) ||
-                (cell[0][1] == 2 && cell[1][1] == 2 && cell[2][1] == 2) ||
-                (cell[0][2] == 2 && cell[1][2] == 2 && cell[2][2] == 2) ||
-                (cell[0][0] == 2 && cell[1][1] == 2 && cell[2][2] == 2) ||
-                (cell[2][0] == 2 && cell[1][1] == 2 && cell[0][2] == 2)) {
-            mTextViewTurn.setText("Крестики победили!");
-            updateButtonsUsabilty(false);
-            mButton_white_flag.setText("Назад");
-            end = true;
-        } else if (cell[0][0] != 0 && cell[0][1] != 0 && cell[0][2] != 0 &&
-                cell[1][0] != 0 && cell[1][1] != 0 && cell[1][2] != 0 &&
-                cell[2][0] != 0 && cell[2][1] != 0 && cell[2][2] != 0) {
-            mTextViewTurn.setText("Ничья!");
-            updateButtonsUsabilty(false);
-            mButton_white_flag.setText("Назад");
-            end = true;
-        }
-    }
-
-    private void updateButtonsUsabilty(boolean Enable) {
+    public void updateButtonsUsabilty(boolean Enable) {
         mButton_0_0.setEnabled(Enable);
         mButton_0_1.setEnabled(Enable);
         mButton_0_2.setEnabled(Enable);
@@ -260,5 +226,40 @@ public class GameActivity extends AppCompatActivity {
         mButton_2_1.setEnabled(Enable);
         mButton_2_2.setEnabled(Enable);
     }
+
+    public void checkWin() {
+        int res;
+        LogicCalculation Calc = new LogicCalculation();
+        res = Calc.LogicCheck(cell);
+        switch (res) {
+            case 0:
+                mTextViewTurn.setText("Ничья!");
+                updateButtonsUsabilty(false);
+                mButton_white_flag.setText("Назад");
+                end = true;
+                break;
+            case 1:
+                mTextViewTurn.setText("Нолики победили!");
+                mButton_white_flag.setText("Назад");
+                updateButtonsUsabilty(false);
+                end = true;
+                break;
+            case 2:
+                mTextViewTurn.setText("Крестики победили!");
+                updateButtonsUsabilty(false);
+                mButton_white_flag.setText("Назад");
+                end = true;
+                break;
+            case -1:
+                break;
+            default:
+                mTextViewTurn.setText("Произошла какая-то ошибка(");
+                updateButtonsUsabilty(false);
+                mButton_white_flag.setText("Валим отсюда");
+                end = true;
+                break;
+        }
+    }
+
 
 }
