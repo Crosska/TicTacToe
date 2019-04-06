@@ -41,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
         mButton_white_flag = findViewById(R.id.button_white_flag);
         mTextViewTurn = findViewById(R.id.TextViewTurn);
         updateTurnText();
+        updateButtonsUsabilty(true);
     }
 
     public void cell_0_0_pressed(View view) {
@@ -196,7 +197,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void white_flag_pressed(View view) {
-        Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        if (!end) Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -214,6 +215,50 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void checkWin() {
-
+        if ((cell[0][0] == 1 && cell[0][1] == 1 && cell[0][2] == 1) ||
+                (cell[1][0] == 1 && cell[1][1] == 1 && cell[1][2] == 1) ||
+                (cell[2][0] == 1 && cell[2][1] == 1 && cell[2][2] == 1) ||
+                (cell[0][0] == 1 && cell[1][0] == 1 && cell[2][0] == 1) ||
+                (cell[0][1] == 1 && cell[1][1] == 1 && cell[2][1] == 1) ||
+                (cell[0][2] == 1 && cell[1][2] == 1 && cell[2][2] == 1) ||
+                (cell[0][0] == 1 && cell[1][1] == 1 && cell[2][2] == 1) ||
+                (cell[2][0] == 1 && cell[1][1] == 1 && cell[0][2] == 1)) {
+            mTextViewTurn.setText("Нолики победили!");
+            mButton_white_flag.setText("Назад");
+            updateButtonsUsabilty(false);
+            end = true;
+        } else if ((cell[0][0] == 2 && cell[0][1] == 2 && cell[0][2] == 2) ||
+                (cell[1][0] == 2 && cell[1][1] == 2 && cell[1][2] == 2) ||
+                (cell[2][0] == 2 && cell[2][1] == 2 && cell[2][2] == 2) ||
+                (cell[0][0] == 2 && cell[1][0] == 2 && cell[2][0] == 2) ||
+                (cell[0][1] == 2 && cell[1][1] == 2 && cell[2][1] == 2) ||
+                (cell[0][2] == 2 && cell[1][2] == 2 && cell[2][2] == 2) ||
+                (cell[0][0] == 2 && cell[1][1] == 2 && cell[2][2] == 2) ||
+                (cell[2][0] == 2 && cell[1][1] == 2 && cell[0][2] == 2)) {
+            mTextViewTurn.setText("Крестики победили!");
+            updateButtonsUsabilty(false);
+            mButton_white_flag.setText("Назад");
+            end = true;
+        } else if (cell[0][0] != 0 && cell[0][1] != 0 && cell[0][2] != 0 &&
+                cell[1][0] != 0 && cell[1][1] != 0 && cell[1][2] != 0 &&
+                cell[2][0] != 0 && cell[2][1] != 0 && cell[2][2] != 0) {
+            mTextViewTurn.setText("Ничья!");
+            updateButtonsUsabilty(false);
+            mButton_white_flag.setText("Назад");
+            end = true;
+        }
     }
+
+    private void updateButtonsUsabilty(boolean Enable) {
+        mButton_0_0.setEnabled(Enable);
+        mButton_0_1.setEnabled(Enable);
+        mButton_0_2.setEnabled(Enable);
+        mButton_1_0.setEnabled(Enable);
+        mButton_1_1.setEnabled(Enable);
+        mButton_1_2.setEnabled(Enable);
+        mButton_2_0.setEnabled(Enable);
+        mButton_2_1.setEnabled(Enable);
+        mButton_2_2.setEnabled(Enable);
+    }
+
 }
