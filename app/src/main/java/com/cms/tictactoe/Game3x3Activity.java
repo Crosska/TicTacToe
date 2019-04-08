@@ -303,105 +303,107 @@ public class Game3x3Activity extends AppCompatActivity {
     }
 
     public void SetComputerMark(int[] bot_choice) {
-        if ((bot_choice[0] == 0) && (bot_choice[1] == 0)) {
-            if (turn == 1) {
-                cell[0][0] = 1;
-                mButton_0_0.setText("O");
-            } else {
-                cell[0][0] = 2;
-                mButton_0_0.setText("X");
+        if (!end) {
+            if ((bot_choice[0] == 0) && (bot_choice[1] == 0)) {
+                if (turn == 1) {
+                    cell[0][0] = 1;
+                    mButton_0_0.setText("O");
+                } else {
+                    cell[0][0] = 2;
+                    mButton_0_0.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 0) && (bot_choice[1] == 1)) {
+                if (turn == 1) {
+                    cell[0][1] = 1;
+                    mButton_0_1.setText("O");
+                } else {
+                    cell[0][1] = 2;
+                    mButton_0_1.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 0) && (bot_choice[1] == 2)) {
+                if (turn == 1) {
+                    cell[0][2] = 1;
+                    mButton_0_2.setText("O");
+                } else {
+                    cell[0][2] = 2;
+                    mButton_0_2.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 1) && (bot_choice[1] == 0)) {
+                if (turn == 1) {
+                    cell[1][0] = 1;
+                    mButton_1_0.setText("O");
+                } else {
+                    cell[1][0] = 2;
+                    mButton_1_0.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 1) && (bot_choice[1] == 1)) {
+                if (turn == 1) {
+                    cell[1][1] = 1;
+                    mButton_1_1.setText("O");
+                } else {
+                    cell[1][1] = 2;
+                    mButton_1_1.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 1) && (bot_choice[1] == 2)) {
+                if (turn == 1) {
+                    cell[1][2] = 1;
+                    mButton_1_2.setText("O");
+                } else {
+                    cell[1][2] = 2;
+                    mButton_1_2.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 2) && (bot_choice[1] == 0)) {
+                if (turn == 1) {
+                    cell[2][0] = 1;
+                    mButton_2_0.setText("O");
+                } else {
+                    cell[2][0] = 2;
+                    mButton_2_0.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 2) && (bot_choice[1] == 1)) {
+                if (turn == 1) {
+                    cell[2][1] = 1;
+                    mButton_2_1.setText("O");
+                } else {
+                    cell[2][1] = 2;
+                    mButton_2_1.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
+            } else if ((bot_choice[0] == 2) && (bot_choice[1] == 2)) {
+                if (turn == 1) {
+                    cell[2][2] = 1;
+                    mButton_2_2.setText("O");
+                } else {
+                    cell[2][2] = 2;
+                    mButton_2_2.setText("X");
+                }
+                updateTurnValue();
+                updateTurnText();
+                checkWin();
             }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 0) && (bot_choice[1] == 1)) {
-            if (turn == 1) {
-                cell[0][1] = 1;
-                mButton_0_1.setText("O");
-            } else {
-                cell[0][1] = 2;
-                mButton_0_1.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 0) && (bot_choice[1] == 2)) {
-            if (turn == 1) {
-                cell[0][2] = 1;
-                mButton_0_2.setText("O");
-            } else {
-                cell[0][2] = 2;
-                mButton_0_2.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 0)) {
-            if (turn == 1) {
-                cell[1][0] = 1;
-                mButton_1_0.setText("O");
-            } else {
-                cell[1][0] = 2;
-                mButton_1_0.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 1)) {
-            if (turn == 1) {
-                cell[1][1] = 1;
-                mButton_1_1.setText("O");
-            } else {
-                cell[1][1] = 2;
-                mButton_1_1.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 1) && (bot_choice[1] == 2)) {
-            if (turn == 1) {
-                cell[1][2] = 1;
-                mButton_1_2.setText("O");
-            } else {
-                cell[1][2] = 2;
-                mButton_1_2.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 0)) {
-            if (turn == 1) {
-                cell[2][0] = 1;
-                mButton_2_0.setText("O");
-            } else {
-                cell[2][0] = 2;
-                mButton_2_0.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 1)) {
-            if (turn == 1) {
-                cell[2][1] = 1;
-                mButton_2_1.setText("O");
-            } else {
-                cell[2][1] = 2;
-                mButton_2_1.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
-        } else if ((bot_choice[0] == 2) && (bot_choice[1] == 2)) {
-            if (turn == 1) {
-                cell[2][2] = 1;
-                mButton_2_2.setText("O");
-            } else {
-                cell[2][2] = 2;
-                mButton_2_2.setText("X");
-            }
-            updateTurnValue();
-            updateTurnText();
-            checkWin();
         }
     }
 
