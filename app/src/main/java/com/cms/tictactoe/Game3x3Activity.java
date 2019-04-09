@@ -53,6 +53,13 @@ public class Game3x3Activity extends AppCompatActivity {
         mButton_2_2 = findViewById(R.id.cell_2_2);
         mButton_white_flag = findViewById(R.id.button_white_flag);
         mTextViewTurn = findViewById(R.id.TextViewTurn);
+        if (mark_type == 1) {
+            if (player_type == 1) {
+                turn = 2;
+                ComputerTurn();
+                turn = 1;
+            }
+        }
         updateTurnText();
     }
 
@@ -219,7 +226,12 @@ public class Game3x3Activity extends AppCompatActivity {
     }
 
     public void white_flag_pressed(View view) {
-        if (!end) Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        if (!end && player_type == 1)
+            Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 1)
+            Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 2)
+            Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -283,22 +295,25 @@ public class Game3x3Activity extends AppCompatActivity {
     }
 
     public void ComputerTurn() {
-        ComputerPlayer Bot = new ComputerPlayer();
-        switch (computer_difficulty) {
-            case 1:
-                bot_choice = Bot.EasyComputer(cell, turn);
-                SetComputerMark(bot_choice);
-                break;
-            case 2:
-                bot_choice = Bot.NormalComputer(cell, turn);
-                SetComputerMark(bot_choice);
-                break;
-            case 3:
-                Bot.HardComputer(cell, turn);
-                break;
-            default:
-                Toast.makeText(this, "Возникла ошибка в работе бота!", Toast.LENGTH_LONG).show();
-                break;
+        if (!end) {
+            ComputerPlayer Bot = new ComputerPlayer();
+            switch (computer_difficulty) {
+                case 1:
+                    bot_choice = Bot.EasyComputer(cell, turn);
+                    SetComputerMark(bot_choice);
+                    break;
+                case 2:
+                    bot_choice = Bot.NormalComputer(cell, turn);
+                    SetComputerMark(bot_choice);
+                    break;
+                case 3:
+                    bot_choice = Bot.HardComputer3x3(cell, turn);
+                    SetComputerMark(bot_choice);
+                    break;
+                default:
+                    Toast.makeText(this, "Возникла ошибка в работе бота!", Toast.LENGTH_LONG).show();
+                    break;
+            }
         }
     }
 
