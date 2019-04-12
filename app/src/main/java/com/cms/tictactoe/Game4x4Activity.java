@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Game4x4Activity extends AppCompatActivity {
 
-    public int turn = 2;
+    public int turn;
     public int[][] cell = new int[4][4];
     public boolean end = false;
     int computer_difficulty;
@@ -74,6 +74,16 @@ public class Game4x4Activity extends AppCompatActivity {
                 turn = 1;
             }
         }
+    }
+
+    public void onBackPressed() {
+        if (!end && player_type == 1)
+            Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 1)
+            Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 2)
+            Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     public void white_flag_pressed(View view) {
@@ -453,7 +463,7 @@ public class Game4x4Activity extends AppCompatActivity {
                     SetComputerMark(bot_choice);
                     break;
                 case 3:
-                    bot_choice = Bot.HardComputer4x4(cell, turn);
+                    bot_choice = Bot.HardComputer4x4(cell);
                     SetComputerMark(bot_choice);
                     break;
                 default:

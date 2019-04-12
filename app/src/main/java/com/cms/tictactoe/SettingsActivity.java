@@ -1,5 +1,6 @@
 package com.cms.tictactoe;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     ToggleButton sound_switch;
 
-    boolean Sound = true;
+    public boolean Sound = true;
+    public boolean LoginEnable;
+
+    private int ChosenWay;
+    String CODE_CHOSEN_WAY = "fd(73fhH64!@_";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +39,27 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void cabinet_button_clicked(View view) {
+        if (!LoginEnable) {
+            ChosenWay = 1;
+            Intent intent = new Intent(SettingsActivity.this, LoginPassActivity.class);
+            intent.putExtra(CODE_CHOSEN_WAY, ChosenWay);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(SettingsActivity.this, PrivateCabinetActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void score_button_clicked(View view) {
+        if (!LoginEnable) {
+            ChosenWay = 0;
+            Intent intent = new Intent(SettingsActivity.this, LoginPassActivity.class);
+            intent.putExtra(CODE_CHOSEN_WAY, ChosenWay);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(SettingsActivity.this, RecordsTableActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void language_button_clicked(View view) {

@@ -235,6 +235,16 @@ public class Game3x3Activity extends AppCompatActivity {
         finish();
     }
 
+    public void onBackPressed() {
+        if (!end && player_type == 1)
+            Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 1)
+            Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
+        else if (!end && turn == 2)
+            Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
     public void updateTurnText() {
         if (turn == 1) {
             mTextViewTurn.setText("Ход ноликов");

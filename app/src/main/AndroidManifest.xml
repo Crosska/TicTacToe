@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Game4x4Activity"></activity>
+        <activity android:name=".CreateAccountActivity"></activity>
+        <activity android:name=".PrivateCabinetActivity" />
+        <activity android:name=".LoginPassActivity" />
+        <activity android:name=".RecordsTableActivity" />
+        <activity android:name=".Game4x4Activity" />
         <activity android:name=".PreGameActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".Game3x3Activity" />

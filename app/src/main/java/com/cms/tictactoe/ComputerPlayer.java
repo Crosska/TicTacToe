@@ -350,7 +350,7 @@ public class ComputerPlayer {
         return bot_choice;
     }
 
-    public int[] HardComputer4x4(int[][] cell, int turn) {
+    public int[] HardComputer4x4(int[][] cell) {
         int[] bot_choice = new int[2];
         if ((cell[0][0] == 1 && cell[0][1] == 1 && cell[0][2] == 1) || (cell[0][0] == 2 && cell[0][1] == 2 && cell[0][2] == 2)) {
             if (cell[0][3] == 0) {
@@ -436,31 +436,31 @@ public class ComputerPlayer {
                 return bot_choice;
             }
         }
-        if ((cell[3][1] == 1 && cell[3][2] == 1 && cell[3][3] == 1) || (cell[3][1] == 2 && cell[3][2] == 2 && cell[3][3] == 2)) {
-            if (cell[3][0] == 0) {
-                bot_choice[0] = 3;
-                bot_choice[1] = 0;
-                return bot_choice;
-            }
-        }
-        if ((cell[2][1] == 1 && cell[2][2] == 1 && cell[2][3] == 1) || (cell[2][1] == 2 && cell[2][2] == 2 && cell[2][3] == 2)) {
-            if (cell[2][0] == 0) {
-                bot_choice[0] = 2;
-                bot_choice[1] = 0;
-                return bot_choice;
-            }
-        }
-        if ((cell[1][1] == 1 && cell[1][2] == 1 && cell[1][3] == 1) || (cell[1][1] == 2 && cell[1][2] == 2 && cell[1][3] == 2)) {
-            if (cell[1][0] == 0) {
-                bot_choice[0] = 1;
-                bot_choice[1] = 0;
-                return bot_choice;
-            }
-        }
-        if ((cell[0][1] == 1 && cell[0][2] == 1 && cell[0][3] == 1) || (cell[0][1] == 2 && cell[0][2] == 2 && cell[0][3] == 2)) {
+        if ((cell[3][0] == 1 && cell[2][0] == 1 && cell[1][0] == 1) || (cell[3][0] == 2 && cell[2][0] == 2 && cell[1][0] == 2)) {
             if (cell[0][0] == 0) {
                 bot_choice[0] = 0;
                 bot_choice[1] = 0;
+                return bot_choice;
+            }
+        }
+        if ((cell[3][1] == 1 && cell[2][1] == 1 && cell[1][1] == 1) || (cell[3][1] == 2 && cell[2][1] == 2 && cell[1][1] == 2)) {
+            if (cell[0][1] == 0) {
+                bot_choice[0] = 0;
+                bot_choice[1] = 1;
+                return bot_choice;
+            }
+        }
+        if ((cell[3][2] == 1 && cell[2][2] == 1 && cell[1][2] == 1) || (cell[3][2] == 2 && cell[2][2] == 2 && cell[1][2] == 2)) {
+            if (cell[0][2] == 0) {
+                bot_choice[0] = 0;
+                bot_choice[1] = 2;
+                return bot_choice;
+            }
+        }
+        if ((cell[3][3] == 1 && cell[2][3] == 1 && cell[1][3] == 1) || (cell[3][3] == 2 && cell[2][3] == 2 && cell[1][3] == 2)) {
+            if (cell[0][3] == 0) {
+                bot_choice[0] = 0;
+                bot_choice[1] = 3;
                 return bot_choice;
             }
         }
@@ -632,11 +632,11 @@ public class ComputerPlayer {
                 return bot_choice;
             }
         }
-        bot_choice = RandomMark4x4(cell, turn);
+        bot_choice = RandomMark4x4(cell);
         return bot_choice;
     }
 
-    private int[] RandomMark4x4(int[][] cell, int turn) {
+    private int[] RandomMark4x4(int[][] cell) {
         int[] bot_choice = new int[2];
         Random rand = new Random();
         int random_x = rand.nextInt(4);
