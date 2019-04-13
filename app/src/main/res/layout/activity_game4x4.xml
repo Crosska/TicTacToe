@@ -31,7 +31,8 @@
             android:layout_weight="1"
             android:onClick="cell_0_0_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_0_1"
@@ -42,7 +43,8 @@
             android:layout_weight="1"
             android:onClick="cell_0_1_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_0_2"
@@ -53,7 +55,8 @@
             android:layout_weight="1"
             android:onClick="cell_0_2_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_0_3"
@@ -64,7 +67,8 @@
             android:layout_weight="1"
             android:onClick="cell_0_3_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
     </LinearLayout>
 
@@ -82,7 +86,8 @@
             android:layout_weight="1"
             android:onClick="cell_1_0_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_1_1"
@@ -93,7 +98,8 @@
             android:layout_weight="1"
             android:onClick="cell_1_1_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_1_2"
@@ -104,7 +110,8 @@
             android:layout_weight="1"
             android:onClick="cell_1_2_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_1_3"
@@ -115,7 +122,8 @@
             android:layout_weight="1"
             android:onClick="cell_1_3_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
     </LinearLayout>
 
@@ -133,7 +141,8 @@
             android:layout_weight="1"
             android:onClick="cell_2_0_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_2_1"
@@ -144,7 +153,8 @@
             android:layout_weight="1"
             android:onClick="cell_2_1_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_2_2"
@@ -155,7 +165,8 @@
             android:layout_weight="1"
             android:onClick="cell_2_2_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_2_3"
@@ -166,7 +177,8 @@
             android:layout_weight="1"
             android:onClick="cell_2_3_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
 
     </LinearLayout>
@@ -185,7 +197,8 @@
             android:layout_weight="1"
             android:onClick="cell_3_0_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_3_1"
@@ -196,7 +209,8 @@
             android:layout_weight="1"
             android:onClick="cell_3_1_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_3_2"
@@ -207,7 +221,8 @@
             android:layout_weight="1"
             android:onClick="cell_3_2_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
         <Button
             android:id="@+id/cell_3_3"
@@ -218,7 +233,8 @@
             android:layout_weight="1"
             android:onClick="cell_3_3_pressed"
             android:textColor="@color/colorText"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:background="@color/colorElementsBackground" />
 
 
     </LinearLayout>
@@ -239,7 +255,8 @@
             android:onClick="white_flag_pressed"
             android:padding="14dp"
             android:text="@string/name_button_white_flag"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@color/colorElementsBackground" />
 
     </LinearLayout>
 

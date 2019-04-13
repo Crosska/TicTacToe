@@ -6,56 +6,68 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/error_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccountError"
+        android:textSize="17sp" />
+
     <LinearLayout
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorElementsBackground"
         android:minWidth="300dp"
         android:minHeight="220dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="6dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="9dp"
+            android:text="Создать нового пользователя"
+            android:textAlignment="center"
             android:textColor="@color/colorText"
             android:textSize="20sp"
-            android:text="Создать нового пользователя"
-            android:textAlignment="center" />
+            android:layout_marginBottom="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorHint"
-            android:textSize="15sp"
             android:layout_gravity="start"
-            android:text="Логин" />
+            android:padding="1dp"
+            android:text="Логин"
+            android:textColor="@color/colorHint"
+            android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/line_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="270dp"
             android:inputType="text"
-            android:textColor="@color/colorText"
-            android:id="@+id/line_username" />
+            android:textColor="@color/colorText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorHint"
-            android:textSize="15sp"
             android:layout_gravity="start"
-            android:text="Пароль" />
+            android:padding="1dp"
+            android:text="Пароль"
+            android:textColor="@color/colorHint"
+            android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/line_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="270dp"
             android:inputType="textPassword"
-            android:textColor="@color/colorText"
-            android:id="@+id/line_password" />
+            android:textColor="@color/colorText" />
 
     </LinearLayout>
 
@@ -64,16 +76,19 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="170dp"
         android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorElementsBackground"
         android:onClick="create_button_pressed"
         android:text="Создать"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button_settings"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="170dp"
         android:layout_height="60dp"
+        android:background="@color/colorElementsBackground"
         android:onClick="back_button_pressed"
         android:text="@string/name_button_back"
         android:textSize="20sp" />

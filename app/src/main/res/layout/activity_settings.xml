@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:width="140dp"
                 android:onClick="color_button_pressed"
-                android:text="сменить" />
+                android:text="сменить"
+                android:background="@color/colorElementsBackground" />
 
         </LinearLayout>
 
@@ -49,7 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:width="140dp"
                 android:text="Русский"
-                android:onClick="language_button_clicked" />
+                android:onClick="language_button_clicked"
+                android:background="@color/colorElementsBackground" />
 
         </LinearLayout>
 
@@ -73,7 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:width="140dp"
                 android:text="Показать"
-                android:onClick="score_button_clicked" />
+                android:onClick="score_button_clicked"
+                android:background="@color/colorElementsBackground" />
 
         </LinearLayout>
 
@@ -97,7 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,7 +120,8 @@
                 android:layout_height="wrap_content"
                 android:width="140dp"
                 android:text="Зайти"
-                android:onClick="cabinet_button_clicked" />
+                android:onClick="cabinet_button_clicked"
+                android:background="@color/colorElementsBackground" />
 
         </LinearLayout>
 
@@ -121,7 +129,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -139,7 +148,8 @@
                 android:width="140dp"
                 android:textOff="Выключен"
                 android:textOn="Включен"
-                android:onClick="sound_button_clicked" />
+                android:onClick="sound_button_clicked"
+                android:background="@color/colorElementsBackground" />
 
         </LinearLayout>
 
@@ -151,7 +161,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="back_button_pressed"
-        android:text="@string/name_button_back" />
+        android:text="@string/name_button_back"
+        android:background="@color/colorElementsBackground" />
 
 
 </LinearLayout>
