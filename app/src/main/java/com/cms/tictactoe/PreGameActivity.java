@@ -2,8 +2,6 @@ package com.cms.tictactoe;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.ColorStateList;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,16 +26,32 @@ public class PreGameActivity extends AppCompatActivity {
     String CODE_3X3_PLAYER_TYPE = "*M68m=bvBn6%5";
     String CODE_4X4_PLAYER_TYPE = "8{#e6c?~qL%?OK";
 
-    public int computer_difficulty;
-    public int grid_size;
-    public int mark_type;
-    public int player_type;
+    int computer_difficulty;
+    int grid_size;
+    int mark_type;
+    int player_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_pre_game);
+        setUpElements();
+        setUpDefaultValue();
+    }
+
+    private void setUpDefaultValue() {
+        computer_radio.setChecked(true);
+        easy_radio.setChecked(true);
+        grid3x3_radio.setChecked(true);
+        cross_radio.setChecked(true);
+        mark_type = 2;
+        computer_difficulty = 1;
+        grid_size = 1;
+        player_type = 1;
+    }
+
+    private void setUpElements() {
         computer_radio = findViewById(R.id.computer_radio_button);
         human_radio = findViewById(R.id.human_radio_button);
         easy_radio = findViewById(R.id.easy_radio_button);
@@ -47,25 +61,6 @@ public class PreGameActivity extends AppCompatActivity {
         grid4x4_radio = findViewById(R.id.cell4x4_radio_button);
         cross_radio = findViewById(R.id.cross_radio_button);
         oval_radio = findViewById(R.id.oval_radio_button);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            computer_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            human_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            easy_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            normal_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            hard_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            grid3x3_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            grid4x4_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            cross_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-            oval_radio.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
-        }
-        computer_radio.setChecked(true);
-        easy_radio.setChecked(true);
-        grid3x3_radio.setChecked(true);
-        cross_radio.setChecked(true);
-        mark_type = 2;
-        computer_difficulty = 1;
-        grid_size = 1;
-        player_type = 1;
     }
 
     public void back_button_pressed(View view) {

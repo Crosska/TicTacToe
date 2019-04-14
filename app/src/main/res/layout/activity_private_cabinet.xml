@@ -15,12 +15,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:minHeight="30dp"
             android:padding="15dp"
             android:text="Личный кабинет"
             android:textColor="@color/colorText"
-            android:textSize="30sp"
-            android:layout_marginTop="10dp" />
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,13 +33,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Пользователь:"
+                android:text="Уровень игры:"
                 android:textAlignment="center"
                 android:textColor="@color/colorHint"
                 android:textSize="29sp" />
 
             <TextView
-                android:id="@+id/user_textview"
+                android:id="@+id/player_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -210,12 +210,22 @@
 
         <Button
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="160dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="back_button_pressed"
             android:text="@string/name_button_back"
+            android:textSize="20sp" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="logout_button_clicked"
+            android:text="Выход из аккаунта"
             android:textSize="20sp" />
 
     </LinearLayout>

@@ -11,10 +11,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     ToggleButton sound_switch;
 
-    public boolean Sound = true;
-    public boolean LoginEnable;
+    boolean Sound = true;
+    boolean LoginEnable;
+    int ChosenWay;
 
-    private int ChosenWay;
     String CODE_CHOSEN_WAY = "fd(73fhH64!@_";
 
     @Override

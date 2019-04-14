@@ -1,5 +1,7 @@
 package com.cms.tictactoe;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,13 +9,15 @@ import android.widget.TextView;
 
 public class RecordsTableActivity extends AppCompatActivity {
 
-    public int wins_count;
-    public int loses_count;
-    public String user_name;
+    int wins_count;
+    int loses_count;
+    boolean recent;
+    String user_name;
 
-    String CODE_USER_NAME = "h&3gt(*h%tr48";
-    String CODE_WINS_COUNT = "8h@#f09g__08f";
-    String CODE_LOSES_COUNT = "VrFQ}Ig}5Vn$M";
+    String CODE_USER_NAME = "user";
+    String CODE_WINS_COUNT = "wins";
+    String CODE_LOSES_COUNT = "loses";
+    String CODE_RECENT = "recent";
 
     TextView User;
     TextView Wins;
@@ -22,17 +26,23 @@ public class RecordsTableActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_records_table);
         Bundle SavedData = getIntent().getExtras();
         if (SavedData != null) {
             wins_count = SavedData.getInt(CODE_WINS_COUNT, 0);
             loses_count = SavedData.getInt(CODE_LOSES_COUNT, 0);
             user_name = SavedData.getString(CODE_USER_NAME, "Default");
+            recent = SavedData.getBoolean(CODE_RECENT, false);
         }
+        setUpElements();
+        setData();
+    }
+
+    private void setUpElements() {
         User = findViewById(R.id.user_textview);
         Wins = findViewById(R.id.wins_textview);
         Loses = findViewById(R.id.loses_textview);
-        setData();
     }
 
     private void setData() {
@@ -44,10 +54,23 @@ public class RecordsTableActivity extends AppCompatActivity {
     }
 
     public void back_button_pressed(View view) {
-        finish();
+        if (recent) {
+            Intent intent = new Intent(RecordsTableActivity.this, SettingsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else {
+            finish();
+        }
     }
 
+    @Override
     public void onBackPressed() {
-        finish();
+        if (recent) {
+            Intent intent = new Intent(RecordsTableActivity.this, SettingsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else {
+            finish();
+        }
     }
 }

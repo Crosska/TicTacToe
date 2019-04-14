@@ -28,11 +28,9 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     public void create_button_pressed(View view) {
         String username_entered;
-        String password_entered;
-
         username_entered = username.getText().toString();
+        String password_entered;
         password_entered = password.getText().toString();
-
         if (!username_entered.equals("") && !password_entered.equals("")) {
             if (username_entered.length() <= 10 && password_entered.length() <= 10) {
                 refreshError();

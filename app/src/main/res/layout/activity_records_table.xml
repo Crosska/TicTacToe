@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Пользователь:"
+            android:text="Игрок:"
             android:textAlignment="center"
             android:textColor="@color/colorHint"
             android:textSize="25sp" />
@@ -59,7 +59,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/loses_textview"
+                android:id="@+id/wins_textview"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -86,7 +86,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/wins_textview"
+                android:id="@+id/loses_textview"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

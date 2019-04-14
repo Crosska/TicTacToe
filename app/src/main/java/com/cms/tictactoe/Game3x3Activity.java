@@ -1,5 +1,6 @@
 package com.cms.tictactoe;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,15 +9,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Game3x3Activity extends AppCompatActivity {
 
-    public int turn;
-    public int[][] cell = new int[3][3];
-    public boolean end = false;
-    public int computer_difficulty;
-    public int mark_type;
-    public int player_type;
-    public int[] bot_choice = new int[2];
+    int turn;
+    int[][] cell = new int[3][3];
+    boolean end = false;
+    int computer_difficulty;
+    int mark_type;
+    int player_type;
+    int[] bot_choice = new int[2];
 
     Button mButton_0_0;
     Button mButton_0_1;
@@ -42,6 +49,18 @@ public class Game3x3Activity extends AppCompatActivity {
             player_type = SavedData.getInt("*M68m=bvBn6%5", 2);
             turn = mark_type;
         }
+        setUpElements();
+        if (mark_type == 1) {
+            if (player_type == 1) {
+                turn = 2;
+                ComputerTurn();
+                turn = 1;
+            }
+        }
+        updateTurnText();
+    }
+
+    private void setUpElements() {
         mButton_0_0 = findViewById(R.id.cell_0_0);
         mButton_0_1 = findViewById(R.id.cell_0_1);
         mButton_0_2 = findViewById(R.id.cell_0_2);
@@ -53,14 +72,18 @@ public class Game3x3Activity extends AppCompatActivity {
         mButton_2_2 = findViewById(R.id.cell_2_2);
         mButton_white_flag = findViewById(R.id.button_white_flag);
         mTextViewTurn = findViewById(R.id.TextViewTurn);
-        if (mark_type == 1) {
-            if (player_type == 1) {
-                turn = 2;
-                ComputerTurn();
-                turn = 1;
-            }
-        }
-        updateTurnText();
+    }
+
+    public void updateButtonsUsabilty(boolean Enable) {
+        mButton_0_0.setEnabled(Enable);
+        mButton_0_1.setEnabled(Enable);
+        mButton_0_2.setEnabled(Enable);
+        mButton_1_0.setEnabled(Enable);
+        mButton_1_1.setEnabled(Enable);
+        mButton_1_2.setEnabled(Enable);
+        mButton_2_0.setEnabled(Enable);
+        mButton_2_1.setEnabled(Enable);
+        mButton_2_2.setEnabled(Enable);
     }
 
     public void cell_0_0_pressed(View view) {
@@ -117,14 +140,14 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-    public void cell_1_2_pressed(View view) {
-        if (cell[1][2] != 1 && cell[1][2] != 2) { // 1 - нолик, 2 - крестик
+    public void cell_1_0_pressed(View view) {
+        if (cell[1][0] != 1 && cell[1][0] != 2) { // 1 - нолик, 2 - крестик
             if (turn == 1) {
-                cell[1][2] = 1;
-                mButton_1_2.setText("O");
+                cell[1][0] = 1;
+                mButton_1_0.setText("O");
             } else {
-                cell[1][2] = 2;
-                mButton_1_2.setText("X");
+                cell[1][0] = 2;
+                mButton_1_0.setText("X");
             }
             updateTurnValue();
             updateTurnText();
@@ -153,14 +176,14 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-    public void cell_1_0_pressed(View view) {
-        if (cell[1][0] != 1 && cell[1][0] != 2) { // 1 - нолик, 2 - крестик
+    public void cell_1_2_pressed(View view) {
+        if (cell[1][2] != 1 && cell[1][2] != 2) { // 1 - нолик, 2 - крестик
             if (turn == 1) {
-                cell[1][0] = 1;
-                mButton_1_0.setText("O");
+                cell[1][2] = 1;
+                mButton_1_2.setText("O");
             } else {
-                cell[1][0] = 2;
-                mButton_1_0.setText("X");
+                cell[1][2] = 2;
+                mButton_1_2.setText("X");
             }
             updateTurnValue();
             updateTurnText();
@@ -226,26 +249,17 @@ public class Game3x3Activity extends AppCompatActivity {
     }
 
     public void white_flag_pressed(View view) {
-        if (!end && player_type == 1)
+        if (!end && player_type == 1) {
+            scoreDown();
             Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
-        else if (!end && turn == 1)
+        } else if (!end && turn == 1)
             Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
         else if (!end && turn == 2)
             Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
         finish();
     }
 
-    public void onBackPressed() {
-        if (!end && player_type == 1)
-            Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
-        else if (!end && turn == 1)
-            Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
-        else if (!end && turn == 2)
-            Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
-        finish();
-    }
-
-    public void updateTurnText() {
+    private void updateTurnText() {
         if (turn == 1) {
             mTextViewTurn.setText("Ход ноликов");
         } else {
@@ -253,26 +267,14 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-    public void updateTurnValue() {
+    private void updateTurnValue() {
         if (turn == 1) turn = 2;
         else turn = 1;
     }
 
-    public void updateButtonsUsabilty(boolean Enable) {
-        mButton_0_0.setEnabled(Enable);
-        mButton_0_1.setEnabled(Enable);
-        mButton_0_2.setEnabled(Enable);
-        mButton_1_0.setEnabled(Enable);
-        mButton_1_1.setEnabled(Enable);
-        mButton_1_2.setEnabled(Enable);
-        mButton_2_0.setEnabled(Enable);
-        mButton_2_1.setEnabled(Enable);
-        mButton_2_2.setEnabled(Enable);
-    }
-
-    public void checkWin() {
+    private void checkWin() {
         int res;
-        LogicCalculation3x3 Calc = new LogicCalculation3x3();
+        ZLogicCalculation3x3 Calc = new ZLogicCalculation3x3();
         res = Calc.LogicCheck(cell);
         switch (res) {
             case 0:
@@ -282,12 +284,20 @@ public class Game3x3Activity extends AppCompatActivity {
                 end = true;
                 break;
             case 1:
+                if (player_type == 1) {
+                    if (mark_type == 1) scoreUp();
+                    else scoreDown();
+                }
                 mTextViewTurn.setText("Нолики победили!");
                 mButton_white_flag.setText("Назад");
                 updateButtonsUsabilty(false);
                 end = true;
                 break;
             case 2:
+                if (player_type == 1) {
+                    if (mark_type == 2) scoreUp();
+                    else scoreDown();
+                }
                 mTextViewTurn.setText("Крестики победили!");
                 updateButtonsUsabilty(false);
                 mButton_white_flag.setText("Назад");
@@ -304,9 +314,132 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-    public void ComputerTurn() {
+    private void fillNewFile(String login, String[] Lines) {
+        FileOutputStream FileOutput = null;
+        try {
+            FileOutput = openFileOutput(login + ".txt", MODE_PRIVATE);
+            FileOutput.write(Lines[0].getBytes());
+            FileOutput.write("\n".getBytes());
+            FileOutput.write(Lines[1].getBytes());
+            FileOutput.write("\n".getBytes());
+            FileOutput.write(Lines[2].getBytes());
+        } catch (IOException ex) {
+            Toast.makeText(this, "Ошибка создания", Toast.LENGTH_SHORT).show();
+        } finally {
+            try {
+                if (FileOutput != null) FileOutput.close();
+            } catch (IOException ex) {
+                Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void scoreUp() {
+        Context c = getApplicationContext();
+        String pre_path = c.getFilesDir().getPath();
+        String file_path = pre_path + "/RecentAccounts.txt";
+        boolean recent = false;
+        String login = "null";
+        try {
+            File file = new File(file_path);
+            FileReader FileInput = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(FileInput);
+            login = bufferedReader.readLine();
+            bufferedReader.close();
+            recent = true;
+        } catch (Exception e) {
+            //Toast.makeText(this, "Не получилось открыть RecentFiles.txt", Toast.LENGTH_LONG).show();
+        }
+        if (recent) {
+            file_path = pre_path + "/" + login + ".txt";
+            String[] Lines = new String[3];
+            String temp_line;
+            try {
+                File file = new File(file_path);
+                FileReader FileInput = new FileReader(file);
+                BufferedReader bufferedReader = new BufferedReader(FileInput);
+                int i = 0;
+                while ((temp_line = bufferedReader.readLine()) != null) {
+                    Lines[i] = temp_line;
+                    i++;
+                }
+                bufferedReader.close();
+            } catch (Exception e) {
+                Toast.makeText(this, "Ошибка в чтении аккаунта", Toast.LENGTH_SHORT).show();
+            }
+            deleteOldFile(file_path); // Удаляем старый файл
+            byte action = 0;
+            Lines[1] = changeScore(action, Lines); //
+            fillNewFile(login, Lines); // Создаем новый файл и заполняем старыми данными
+        } else {
+            //Toast.makeText(this, "Ошибка!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void scoreDown() {
+        Context c = getApplicationContext();
+        String pre_path = c.getFilesDir().getPath();
+        String file_path = pre_path + "/RecentAccounts.txt";
+        boolean recent = false;
+        String login = "null";
+        try {
+            File file = new File(file_path);
+            FileReader FileInput = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(FileInput);
+            login = bufferedReader.readLine();
+            bufferedReader.close();
+            recent = true;
+        } catch (Exception e) {
+            //Toast.makeText(this, "Не получилось открыть RecentFiles.txt", Toast.LENGTH_LONG).show();
+        }
+        if (recent) {
+            file_path = pre_path + "/" + login + ".txt";
+            String[] Lines = new String[3];
+            String temp_line;
+            try {
+                File file = new File(file_path);
+                FileReader FileInput = new FileReader(file);
+                BufferedReader bufferedReader = new BufferedReader(FileInput);
+                byte i = 0;
+                while ((temp_line = bufferedReader.readLine()) != null) {
+                    Lines[i] = temp_line;
+                    i++;
+                }
+                bufferedReader.close();
+            } catch (Exception e) {
+                Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show();
+            }
+            deleteOldFile(file_path); // Удаляем старый файл
+            byte action = 1;
+            Lines[2] = changeScore(action, Lines); // Изменяем данные игрока
+            fillNewFile(login, Lines); // Создаем новый файл и заполняем старыми данными
+        } else {
+            //Toast.makeText(this, "Ошибка!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private String changeScore(byte action, String[] Lines) {
+        if (action == 0) {
+            int wins_count = Integer.parseInt(Lines[1]);
+            wins_count++;
+            Lines[1] = String.valueOf(wins_count);
+            return Lines[1];
+        } else {
+            int loses_count = Integer.parseInt(Lines[2]);
+            loses_count++;
+            Lines[2] = String.valueOf(loses_count);
+            return Lines[2];
+        }
+    }
+
+    private void deleteOldFile(String file_path) {
+        File file = new File(file_path);
+        file.delete();
+    }
+
+    private void ComputerTurn() {
         if (!end) {
-            ComputerPlayer Bot = new ComputerPlayer();
+            ZComputerPlayer Bot = new ZComputerPlayer();
             switch (computer_difficulty) {
                 case 1:
                     bot_choice = Bot.EasyComputer(cell, turn);
@@ -327,7 +460,7 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-    public void SetComputerMark(int[] bot_choice) {
+    private void SetComputerMark(int[] bot_choice) {
         if (!end) {
             if ((bot_choice[0] == 0) && (bot_choice[1] == 0)) {
                 if (turn == 1) {
@@ -432,5 +565,6 @@ public class Game3x3Activity extends AppCompatActivity {
         }
     }
 
-
+    public void onBackPressed() {
+    }
 }
