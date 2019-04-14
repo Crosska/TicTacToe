@@ -64,6 +64,10 @@ public class Game4x4Activity extends AppCompatActivity {
                 turn = 1;
             }
         }
+        updateTurnText();
+        String temp;
+        temp = ((MyApplication) this.getApplication()).getTextLine(37);
+        mButton_white_flag.setText(temp);
     }
 
     private void setUpElements() {
@@ -406,10 +410,13 @@ public class Game4x4Activity extends AppCompatActivity {
     }
 
     private void updateTurnText() {
+        String temp;
         if (turn == 1) {
-            mTextViewTurn.setText("Ход ноликов");
+            temp = ((MyApplication) this.getApplication()).getTextLine(30);
+            mTextViewTurn.setText(temp);
         } else {
-            mTextViewTurn.setText("Ход крестиков");
+            temp = ((MyApplication) this.getApplication()).getTextLine(29);
+            mTextViewTurn.setText(temp);
         }
     }
 
@@ -422,11 +429,14 @@ public class Game4x4Activity extends AppCompatActivity {
         int res;
         ZLogicCalculation4x4 Calc = new ZLogicCalculation4x4();
         res = Calc.LogicCheck(cell);
+        String temp;
         switch (res) {
             case 0:
-                mTextViewTurn.setText("Ничья!");
+                temp = ((MyApplication) this.getApplication()).getTextLine(34);
+                mTextViewTurn.setText(temp);
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
             case 1:
@@ -434,8 +444,10 @@ public class Game4x4Activity extends AppCompatActivity {
                     if (mark_type == 1) scoreUp();
                     else scoreDown();
                 }
-                mTextViewTurn.setText("Нолики победили!");
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(36);
+                mTextViewTurn.setText(temp);
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 updateButtonsUsabilty(false);
                 end = true;
                 break;
@@ -444,17 +456,20 @@ public class Game4x4Activity extends AppCompatActivity {
                     if (mark_type == 2) scoreUp();
                     else scoreDown();
                 }
-                mTextViewTurn.setText("Крестики победили!");
+                temp = ((MyApplication) this.getApplication()).getTextLine(35);
+                mTextViewTurn.setText(temp);
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
             case -1:
                 break;
             default:
-                mTextViewTurn.setText("Произошла какая-то ошибка(");
+                mTextViewTurn.setText("------");
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Валим отсюда");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
         }

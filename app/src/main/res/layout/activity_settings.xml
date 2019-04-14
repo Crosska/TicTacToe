@@ -12,9 +12,9 @@
         android:fontFamily="sans-serif-black"
         android:paddingTop="50dp"
         android:paddingBottom="30dp"
-        android:text="@string/name_textview_header_settings"
         android:textColor="@color/colorText"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:id="@+id/settings_textview" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,9 +32,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="170dp"
-                android:text="@string/name_textview_color"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/color_textview" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
@@ -42,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:width="140dp"
                 android:onClick="color_button_pressed"
-                android:text="сменить"
-                android:background="@color/colorElementsBackground" />
+                android:background="@color/colorElementsBackground"
+                android:id="@+id/color_button" />
 
         </LinearLayout>
 
@@ -58,18 +58,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="170dp"
-                android:text="@string/name_textview_language"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/language_textview" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="140dp"
-                android:text="Русский"
                 android:onClick="language_button_clicked"
-                android:background="@color/colorElementsBackground" />
+                android:background="@color/colorElementsBackground"
+                android:id="@+id/language_button" />
 
         </LinearLayout>
 
@@ -84,18 +84,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="170dp"
-                android:text="Таблица рекордов"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/score_textview" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="140dp"
-                android:text="Показать"
                 android:onClick="score_button_clicked"
-                android:background="@color/colorElementsBackground" />
+                android:background="@color/colorElementsBackground"
+                android:id="@+id/score_button" />
 
         </LinearLayout>
 
@@ -110,18 +110,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="170dp"
-                android:text="Личный кабинет"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/cabinet_textview" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="140dp"
-                android:text="Зайти"
                 android:onClick="cabinet_button_clicked"
-                android:background="@color/colorElementsBackground" />
+                android:background="@color/colorElementsBackground"
+                android:id="@+id/cabinet_button" />
 
         </LinearLayout>
 
@@ -136,9 +136,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="170dp"
-                android:text="Звук в игре"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/sound_textview" />
 
             <ToggleButton
                 android:id="@+id/switch_sound"
@@ -146,8 +146,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="140dp"
-                android:textOff="Выключен"
-                android:textOn="Включен"
                 android:onClick="sound_button_clicked"
                 android:background="@color/colorElementsBackground" />
 
@@ -161,8 +159,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="back_button_pressed"
-        android:text="@string/name_button_back"
-        android:background="@color/colorElementsBackground" />
+        android:background="@color/colorElementsBackground"
+        android:id="@+id/back_button" />
 
 
 </LinearLayout>

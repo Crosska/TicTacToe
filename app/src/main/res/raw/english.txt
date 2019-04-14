@@ -1,0 +1,73 @@
+Start a new game
+Settings
+Exit
+Interface color
+Program language
+Table of records
+Personal account
+The sound
+Change
+Show
+Enter
+Turned off
+Turned on
+Backward
+The parameters of the game
+Type of game
+Difficulty of bot
+Field size
+Mark type
+With computer
+With man
+Easy
+Medium
+Hard
+3 X 3
+4 X 4
+Cross
+Zero
+Start
+The course crosses
+Stroke of zeros
+You lost!
+Zeroes lost!
+Crosses lost!
+Tie!
+Crosses won!
+The o's won!
+Surrender
+To create a new user
+Login
+Password
+Create
+Account successfully created
+The maximum field length is 10 characters.
+Fields should not be empty.
+Creation failed
+User data
+Enter
+Error, account not found.
+Hi,
+Error, check the entered data.
+Table of records
+Victories':
+Defeats':
+Player
+Personal account
+Level of play:
+Login:
+Password:
+Account management:
+New login:
+New password:
+Replace
+Sign out of account
+Disgusting
+Terrible
+Very bad
+Bad
+Good
+Very good
+Beautiful
+Godlike
+Current account

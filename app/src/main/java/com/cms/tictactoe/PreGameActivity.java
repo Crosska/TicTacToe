@@ -5,10 +5,19 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class PreGameActivity extends AppCompatActivity {
 
+    TextView parameters_textview;
+    TextView game_type_textview;
+    TextView difficulty_textview;
+    TextView grid_size_textview;
+    TextView mark_type_textview;
+    Button start_button;
+    Button back_button;
     RadioButton computer_radio;
     RadioButton human_radio;
     RadioButton easy_radio;
@@ -38,6 +47,42 @@ public class PreGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pre_game);
         setUpElements();
         setUpDefaultValue();
+        setText();
+    }
+
+    private void setText() {
+        String temp = ((MyApplication) this.getApplication()).getTextLine(14);
+        parameters_textview.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(15);
+        game_type_textview.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(16);
+        difficulty_textview.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(17);
+        grid_size_textview.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(18);
+        mark_type_textview.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(20);
+        human_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(19);
+        computer_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(21);
+        easy_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(22);
+        normal_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(23);
+        hard_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(24);
+        grid3x3_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(25);
+        grid4x4_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(26);
+        cross_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(27);
+        oval_radio.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(28);
+        start_button.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(13);
+        back_button.setText(temp);
     }
 
     private void setUpDefaultValue() {
@@ -52,6 +97,13 @@ public class PreGameActivity extends AppCompatActivity {
     }
 
     private void setUpElements() {
+        parameters_textview = findViewById(R.id.parameters_textview);
+        game_type_textview = findViewById(R.id.game_type_textview);
+        difficulty_textview = findViewById(R.id.difficulty_textview);
+        grid_size_textview = findViewById(R.id.grid_size_textview);
+        mark_type_textview = findViewById(R.id.mark_type_textview);
+        start_button = findViewById(R.id.start_button);
+        back_button = findViewById(R.id.back_button);
         computer_radio = findViewById(R.id.computer_radio_button);
         human_radio = findViewById(R.id.human_radio_button);
         easy_radio = findViewById(R.id.easy_radio_button);

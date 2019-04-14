@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class RecordsTableActivity extends AppCompatActivity {
@@ -19,9 +20,14 @@ public class RecordsTableActivity extends AppCompatActivity {
     String CODE_LOSES_COUNT = "loses";
     String CODE_RECENT = "recent";
 
+    TextView Header;
+    TextView Wins_header;
+    TextView Loses_header;
     TextView User;
     TextView Wins;
     TextView Loses;
+    TextView Player;
+    Button Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +42,32 @@ public class RecordsTableActivity extends AppCompatActivity {
             recent = SavedData.getBoolean(CODE_RECENT, false);
         }
         setUpElements();
+        setText();
         setData();
+    }
+
+    private void setText() {
+        String temp = ((MyApplication) this.getApplication()).getTextLine(51);
+        Header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(52);
+        Wins_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(53);
+        Loses_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(13);
+        Back.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(54);
+        Player.setText(temp);
     }
 
     private void setUpElements() {
         User = findViewById(R.id.user_textview);
         Wins = findViewById(R.id.wins_textview);
         Loses = findViewById(R.id.loses_textview);
+        Header = findViewById(R.id.header_textview);
+        Wins_header = findViewById(R.id.wins_header_textview);
+        Loses_header = findViewById(R.id.loses_header_textview);
+        Back = findViewById(R.id.back_button);
+        Player = findViewById(R.id.player_textview);
     }
 
     private void setData() {

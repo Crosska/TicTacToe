@@ -3,6 +3,7 @@ package com.cms.tictactoe;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,18 +13,46 @@ import java.io.IOException;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
-
     EditText username;
     EditText password;
     TextView error;
+    TextView header;
+    TextView username_hint;
+    TextView password_hint;
+    Button create;
+    Button back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        setUpElements();
+        setText();
+    }
+
+    private void setText() {
+        String temp = ((MyApplication) this.getApplication()).getTextLine(38);
+        header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(39);
+        username_hint.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(40);
+        password_hint.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(41);
+        create.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(13);
+        back.setText(temp);
+    }
+
+    private void setUpElements() {
         username = findViewById(R.id.line_username);
         password = findViewById(R.id.line_password);
         error = findViewById(R.id.error_textview);
+        header = findViewById(R.id.header_textview);
+        username_hint = findViewById(R.id.login_hint_textview);
+        password_hint = findViewById(R.id.password_hint_textview);
+        create = findViewById(R.id.create_button);
+        back = findViewById(R.id.back_button);
     }
 
     public void create_button_pressed(View view) {
@@ -43,9 +72,11 @@ public class CreateAccountActivity extends AppCompatActivity {
                     FileOutput.write(temp_score.getBytes());
                     FileOutput.write("\n".getBytes());
                     FileOutput.write(temp_score.getBytes());
-                    Toast.makeText(this, "Аккаунт успешно создан", Toast.LENGTH_SHORT).show();
+                    String temp = ((MyApplication) this.getApplication()).getTextLine(42);
+                    Toast.makeText(this, temp, Toast.LENGTH_SHORT).show();
                 } catch (IOException ex) {
-                    Toast.makeText(this, "Ошибка создания", Toast.LENGTH_SHORT).show();
+                    String temp = ((MyApplication) this.getApplication()).getTextLine(45);
+                    Toast.makeText(this, temp, Toast.LENGTH_SHORT).show();
                 } finally {
                     try {
                         if (FileOutput != null) FileOutput.close();
@@ -55,10 +86,12 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
                 finish();
             } else {
-                error.setText("Максимальная длина полей 10 символов.");
+                String temp = ((MyApplication) this.getApplication()).getTextLine(43);
+                error.setText(temp);
             }
         } else if (username_entered.equals("") || password_entered.equals("")) {
-            error.setText("Поля не должны быть пустыми");
+            String temp = ((MyApplication) this.getApplication()).getTextLine(44);
+            error.setText(temp);
         }
     }
 

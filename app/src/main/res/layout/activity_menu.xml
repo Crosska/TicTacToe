@@ -26,7 +26,6 @@
         android:layout_weight="1"
         android:background="@color/colorElementsBackground"
         android:onClick="start_button_pressed"
-        android:text="@string/name_button_start"
         android:textSize="20sp" />
 
     <Button
@@ -38,7 +37,6 @@
         android:layout_weight="1"
         android:background="@color/colorElementsBackground"
         android:onClick="settings_button_pressed"
-        android:text="@string/name_button_settings"
         android:textSize="20sp" />
 
     <Button
@@ -50,7 +48,6 @@
         android:layout_weight="1"
         android:background="@color/colorElementsBackground"
         android:onClick="exit_button_pressed"
-        android:text="@string/name_button_exit"
         android:textSize="20sp" />
 
     <TextView

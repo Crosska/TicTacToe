@@ -58,6 +58,9 @@ public class Game3x3Activity extends AppCompatActivity {
             }
         }
         updateTurnText();
+        String temp;
+        temp = ((MyApplication) this.getApplication()).getTextLine(37);
+        mButton_white_flag.setText(temp);
     }
 
     private void setUpElements() {
@@ -249,21 +252,29 @@ public class Game3x3Activity extends AppCompatActivity {
     }
 
     public void white_flag_pressed(View view) {
+        String temp;
         if (!end && player_type == 1) {
             scoreDown();
-            Toast.makeText(this, "Вы проиграли!", Toast.LENGTH_SHORT).show();
-        } else if (!end && turn == 1)
-            Toast.makeText(this, "Нолики проиграли!", Toast.LENGTH_SHORT).show();
-        else if (!end && turn == 2)
-            Toast.makeText(this, "Крестики проиграли!", Toast.LENGTH_SHORT).show();
+            temp = ((MyApplication) this.getApplication()).getTextLine(31);
+            Toast.makeText(this, temp, Toast.LENGTH_SHORT).show();
+        } else if (!end && turn == 1) {
+            temp = ((MyApplication) this.getApplication()).getTextLine(32);
+            Toast.makeText(this, temp, Toast.LENGTH_SHORT).show();
+        } else if (!end && turn == 2) {
+            temp = ((MyApplication) this.getApplication()).getTextLine(33);
+            Toast.makeText(this, temp, Toast.LENGTH_SHORT).show();
+        }
         finish();
     }
 
     private void updateTurnText() {
+        String temp;
         if (turn == 1) {
-            mTextViewTurn.setText("Ход ноликов");
+            temp = ((MyApplication) this.getApplication()).getTextLine(30);
+            mTextViewTurn.setText(temp);
         } else {
-            mTextViewTurn.setText("Ход крестиков");
+            temp = ((MyApplication) this.getApplication()).getTextLine(29);
+            mTextViewTurn.setText(temp);
         }
     }
 
@@ -276,11 +287,14 @@ public class Game3x3Activity extends AppCompatActivity {
         int res;
         ZLogicCalculation3x3 Calc = new ZLogicCalculation3x3();
         res = Calc.LogicCheck(cell);
+        String temp;
         switch (res) {
             case 0:
-                mTextViewTurn.setText("Ничья!");
+                temp = ((MyApplication) this.getApplication()).getTextLine(34);
+                mTextViewTurn.setText(temp);
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
             case 1:
@@ -288,8 +302,10 @@ public class Game3x3Activity extends AppCompatActivity {
                     if (mark_type == 1) scoreUp();
                     else scoreDown();
                 }
-                mTextViewTurn.setText("Нолики победили!");
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(36);
+                mTextViewTurn.setText(temp);
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 updateButtonsUsabilty(false);
                 end = true;
                 break;
@@ -298,17 +314,20 @@ public class Game3x3Activity extends AppCompatActivity {
                     if (mark_type == 2) scoreUp();
                     else scoreDown();
                 }
-                mTextViewTurn.setText("Крестики победили!");
+                temp = ((MyApplication) this.getApplication()).getTextLine(35);
+                mTextViewTurn.setText(temp);
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Назад");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
             case -1:
                 break;
             default:
-                mTextViewTurn.setText("Произошла какая-то ошибка(");
+                mTextViewTurn.setText("------");
                 updateButtonsUsabilty(false);
-                mButton_white_flag.setText("Валим отсюда");
+                temp = ((MyApplication) this.getApplication()).getTextLine(13);
+                mButton_white_flag.setText(temp);
                 end = true;
                 break;
         }

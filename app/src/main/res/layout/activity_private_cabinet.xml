@@ -8,17 +8,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/private_cabinet_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:minHeight="30dp"
             android:padding="15dp"
-            android:text="Личный кабинет"
             android:textColor="@color/colorText"
             android:textSize="30sp" />
 
@@ -30,10 +30,10 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/player_level_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Уровень игры:"
                 android:textAlignment="center"
                 android:textColor="@color/colorHint"
                 android:textSize="29sp" />
@@ -58,10 +58,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Логин: "
                     android:textAlignment="textEnd"
                     android:textColor="@color/colorHint"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:id="@+id/login_header" />
 
                 <TextView
                     android:id="@+id/login_textview"
@@ -85,10 +85,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Пароль: "
                     android:textAlignment="textEnd"
                     android:textColor="@color/colorHint"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:id="@+id/password_header" />
 
                 <TextView
                     android:id="@+id/password_textview"
@@ -116,10 +116,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="Управление аккаунтом:"
                 android:textAlignment="center"
                 android:textColor="@color/colorHint"
-                android:textSize="27sp" />
+                android:textSize="27sp"
+                android:id="@+id/account_control_header" />
 
             <LinearLayout
                 android:layout_width="280dp"
@@ -134,14 +134,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:padding="7dp"
-                    android:text="Новый логин: "
                     android:textColor="@color/colorHint"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:id="@+id/new_login_header" />
 
                 <EditText
                     android:id="@+id/new_login_edittext"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
                     android:inputType="text"
@@ -152,7 +152,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button_settings"
+                android:id="@+id/change_button_1"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
@@ -160,7 +160,6 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/colorPrimaryDark"
                 android:onClick="change_login_button_pressed"
-                android:text="Сменить"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -176,14 +175,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:padding="7dp"
-                    android:text="Новый пароль: "
                     android:textColor="@color/colorHint"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:id="@+id/new_password_header" />
 
                 <EditText
                     android:id="@+id/new_password_edittext"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
                     android:inputType="textPassword"
@@ -202,8 +200,8 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/colorPrimaryDark"
                 android:onClick="change_password_button_pressed"
-                android:text="Сменить"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:id="@+id/change_button_2" />
 
 
         </LinearLayout>
@@ -215,8 +213,8 @@
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="back_button_pressed"
-            android:text="@string/name_button_back"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:id="@+id/back_button" />
 
         <Button
             style="@style/Widget.AppCompat.Button.Colored"
@@ -225,8 +223,8 @@
             android:layout_margin="10dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="logout_button_clicked"
-            android:text="Выход из аккаунта"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:id="@+id/logout_account" />
 
     </LinearLayout>
 

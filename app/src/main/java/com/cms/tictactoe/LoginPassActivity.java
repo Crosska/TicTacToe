@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,12 @@ public class LoginPassActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     TextView error;
+    TextView header;
+    TextView username_hint;
+    TextView password_hint;
+    Button enter;
+    Button create;
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,7 @@ public class LoginPassActivity extends AppCompatActivity {
             ChosenWay = SavedData.getInt("fd(73fhH64!@_", 0);
         }
         setUpElements();
+        setText();
         boolean RecentIs = false;
         Context c = getApplicationContext();
         String pre_path = c.getFilesDir().getPath();
@@ -58,10 +66,31 @@ public class LoginPassActivity extends AppCompatActivity {
         }
     }
 
+    private void setText() {
+        String temp = ((MyApplication) this.getApplication()).getTextLine(46);
+        header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(39);
+        username_hint.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(40);
+        password_hint.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(41);
+        create.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(13);
+        back.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(47);
+        enter.setText(temp);
+    }
+
     private void setUpElements() {
         username = findViewById(R.id.line_username);
         password = findViewById(R.id.line_password);
         error = findViewById(R.id.error_textview);
+        header = findViewById(R.id.header_textview);
+        username_hint = findViewById(R.id.username_hint);
+        password_hint = findViewById(R.id.password_hint);
+        enter = findViewById(R.id.button_enter);
+        create = findViewById(R.id.button_create);
+        back = findViewById(R.id.button_back);
     }
 
     public void login_button_pressed(View view) {
@@ -91,11 +120,13 @@ public class LoginPassActivity extends AppCompatActivity {
             password_read = Lines[0];
             bufferedReader.close();
         } catch (Exception e) {
-            error.setText("Ошибка, аккаунт не найден.");
+            String temp = ((MyApplication) this.getApplication()).getTextLine(48);
+            error.setText(temp);
         }
         // Конец поиска заданного аккаунта
         if (password_entered.equals(password_read)) { // Сравнение введенного пароля
-            Toast.makeText(this, "Здравствуйте, " + username_entered, Toast.LENGTH_LONG).show();
+            String temp = ((MyApplication) this.getApplication()).getTextLine(49);
+            Toast.makeText(this, temp + " " + username_entered, Toast.LENGTH_LONG).show();
             int wins = Integer.parseInt(Lines[1]);
             int loses = Integer.parseInt(Lines[2]);
             // Запись недавнего аккаунта
@@ -106,7 +137,7 @@ public class LoginPassActivity extends AppCompatActivity {
                 FileOutput.write("\n".getBytes());
                 FileOutput.write(password_entered.getBytes());
             } catch (IOException ex) {
-                Toast.makeText(this, "Недавний аккаунт не сохранен!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "-----", Toast.LENGTH_SHORT).show();
             } finally {
                 try {
                     if (FileOutput != null) FileOutput.close();
@@ -130,7 +161,8 @@ public class LoginPassActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         } else {
-            error.setText("Ошибка, проверьте введенные данные.");
+            String temp = ((MyApplication) this.getApplication()).getTextLine(50);
+            error.setText(temp);
         }
     }
 

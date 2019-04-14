@@ -19,9 +19,9 @@
             android:fontFamily="sans-serif-black"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="@string/name_header_parameters"
             android:textColor="@color/colorText"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:id="@+id/parameters_textview" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -36,9 +36,9 @@
                 android:width="160dp"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
-                android:text="@string/name_textview_gametype"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/game_type_textview" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -53,7 +53,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="computer_radio_clicked"
-                    android:text="@string/name_radio_computer"
                     android:textColor="@color/colorText" />
 
                 <RadioButton
@@ -64,7 +63,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="human_radio_clicked"
-                    android:text="@string/name_radio_human"
                     android:textColor="@color/colorText" />
 
             </RadioGroup>
@@ -85,9 +83,9 @@
                 android:height="143dp"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
-                android:text="@string/name_textview_difficult"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/difficulty_textview" />
 
             <RadioGroup
                 android:id="@+id/difficulty_radio_group"
@@ -103,7 +101,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="easy_radio_clicked"
-                    android:text="@string/name_radio_easy"
                     android:textColor="@color/colorText" />
 
                 <RadioButton
@@ -114,7 +111,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="normal_radio_clicked"
-                    android:text="@string/name_radio_normal"
                     android:textColor="@color/colorText" />
 
                 <RadioButton
@@ -125,7 +121,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="hard_radio_clicked"
-                    android:text="@string/name_radio_hard"
                     android:textColor="@color/colorText" />
 
             </RadioGroup>
@@ -146,9 +141,9 @@
                 android:width="160dp"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
-                android:text="@string/name_textview_size"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/grid_size_textview" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -163,7 +158,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="cell3x3_radio_clicked"
-                    android:text="@string/name_radio_3x3"
                     android:textColor="@color/colorText" />
 
                 <RadioButton
@@ -174,7 +168,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="cell4x4_radio_clicked"
-                    android:text="@string/name_radio_4x4"
                     android:textColor="@color/colorText" />
 
             </RadioGroup>
@@ -194,9 +187,9 @@
                 android:width="160dp"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
-                android:text="@string/name_textview_mark"
                 android:textColor="@color/colorText"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/mark_type_textview" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -211,7 +204,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="cross_radio_clicked"
-                    android:text="@string/name_radio_cross"
                     android:textColor="@color/colorText" />
 
                 <RadioButton
@@ -222,7 +214,6 @@
                     android:width="190dp"
                     android:background="@color/colorElementsBackground"
                     android:onClick="oval_radio_clicked"
-                    android:text="@string/name_radio_oval"
                     android:textColor="@color/colorText" />
 
             </RadioGroup>
@@ -245,7 +236,7 @@
                 android:width="120dp"
                 android:background="@color/colorElementsBackground"
                 android:onClick="start_button_pressed"
-                android:text="@string/name_button_start_game" />
+                android:id="@+id/start_button" />
 
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
@@ -255,7 +246,7 @@
                 android:width="120dp"
                 android:background="@color/colorElementsBackground"
                 android:onClick="back_button_pressed"
-                android:text="@string/name_button_back" />
+                android:id="@+id/back_button" />
 
         </LinearLayout>
 

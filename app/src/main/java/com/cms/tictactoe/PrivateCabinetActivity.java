@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +19,22 @@ import java.io.IOException;
 
 public class PrivateCabinetActivity extends AppCompatActivity {
 
+    TextView private_cabinet;
+    TextView player_stage_header;
+    TextView login_header;
+    TextView password_header;
+    TextView account_control_header;
+    TextView new_login_header;
+    TextView new_password_header;
     TextView username;
     TextView password;
     TextView player_stage;
     EditText new_login;
     EditText new_password;
+    Button change_1;
+    Button change_2;
+    Button logout;
+    Button back;
 
     String login_data;
     String password_data;
@@ -50,38 +62,84 @@ public class PrivateCabinetActivity extends AppCompatActivity {
             recent = SavedData.getBoolean(CODE_RECENT, false);
         }
         setElements();
+        setText();
         setData();
+    }
+
+    private void setText() {
+        String temp = ((MyApplication) this.getApplication()).getTextLine(55);
+        private_cabinet.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(56);
+        player_stage_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(57);
+        login_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(58);
+        password_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(59);
+        account_control_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(60);
+        new_login_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(61);
+        new_password_header.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(62);
+        change_1.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(62);
+        change_2.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(63);
+        logout.setText(temp);
+        temp = ((MyApplication) this.getApplication()).getTextLine(13);
+        back.setText(temp);
     }
 
     private void setData() {
         username.setText(login_data);
         password.setText(password_data);
+        String temp;
         int player_skill = wins_count - loses_count;
         if (player_skill < -30) {
-            player_stage.setText("Отвратительный");
+            temp = ((MyApplication) this.getApplication()).getTextLine(64);
+            player_stage.setText(temp);
         } else if (player_skill >= -30 && player_skill < -20) {
-            player_stage.setText("Ужасный");
+            temp = ((MyApplication) this.getApplication()).getTextLine(65);
+            player_stage.setText(temp);
         } else if (player_skill >= -20 && player_skill < -10) {
-            player_stage.setText("Очень плохой");
+            temp = ((MyApplication) this.getApplication()).getTextLine(66);
+            player_stage.setText(temp);
         } else if (player_skill >= -10 && player_skill < 0) {
-            player_stage.setText("Плохой");
+            temp = ((MyApplication) this.getApplication()).getTextLine(67);
+            player_stage.setText(temp);
         } else if (player_skill >= 0 && player_skill < 10) {
-            player_stage.setText("Хороший");
+            temp = ((MyApplication) this.getApplication()).getTextLine(68);
+            player_stage.setText(temp);
         } else if (player_skill >= 10 && player_skill < 20) {
-            player_stage.setText("Очень хороший");
+            temp = ((MyApplication) this.getApplication()).getTextLine(69);
+            player_stage.setText(temp);
         } else if (player_skill >= 20 && player_skill < 30) {
-            player_stage.setText("Прекрасный");
+            temp = ((MyApplication) this.getApplication()).getTextLine(70);
+            player_stage.setText(temp);
         } else if (player_skill >= 30) {
-            player_stage.setText("Богоподобный");
+            temp = ((MyApplication) this.getApplication()).getTextLine(71);
+            player_stage.setText(temp);
         }
     }
 
     private void setElements() {
+        private_cabinet = findViewById(R.id.private_cabinet_textview);
+        player_stage_header = findViewById(R.id.player_level_textview);
+        login_header = findViewById(R.id.login_header);
+        password_header = findViewById(R.id.password_header);
+        account_control_header = findViewById(R.id.account_control_header);
+        new_login_header = findViewById(R.id.new_login_header);
+        new_password_header = findViewById(R.id.new_password_header);
         username = findViewById(R.id.login_textview);
         password = findViewById(R.id.password_textview);
         player_stage = findViewById(R.id.player_textview);
         new_login = findViewById(R.id.new_login_edittext);
         new_password = findViewById(R.id.new_password_edittext);
+        change_1 = findViewById(R.id.change_button_1);
+        change_2 = findViewById(R.id.change_button_2);
+        logout = findViewById(R.id.logout_account);
+        back = findViewById(R.id.back_button);
     }
 
     private void fillLoginNewFile(String login_new_data, String[] Lines) {
